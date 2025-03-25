@@ -6,4 +6,10 @@ beautifulsoup4==4.12.3
 pandas==2.2.1
 gunicorn==21.2.0
 psycopg2-binary==2.9.9
-SQLAlchemy==2.0.28 
+SQLAlchemy==2.0.28
+nba_api==2.1.10
+requests==2.31.0
+pillow==9.6.0
+selenium==4.11.2
+webdriver_manager==3.8.3
+pytz==2025.2
