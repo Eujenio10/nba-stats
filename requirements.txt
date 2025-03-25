@@ -4,7 +4,7 @@ python-dotenv==1.0.1
 gunicorn==21.2.0
 psycopg2-binary==2.9.9
 sqlalchemy==2.0.28
-requests==2.31.0
+requests
 nba_api==1.8.0
 beautifulsoup4==4.12.3
 pandas==2.2.1
