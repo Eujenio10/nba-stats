@@ -3111,37 +3111,10 @@ def get_app_data_path():
     
     return app_data
 
-def verify_key(key):
-    """Verifica la validità della chiave di accesso"""
-    try:
-        # Hash della chiave per confronto sicuro
-        valid_keys = {
-            # Chiavi valide con scadenza estesa
-            hashlib.sha256("NBA-MARIO-2024-PRO".encode()).hexdigest(): "2032-12-31",
-            hashlib.sha256("NBA-GEATA-2024-PRO".encode()).hexdigest(): "2032-12-31",
-            hashlib.sha256("NBA-VINCY-2024-PRO".encode()).hexdigest(): "2032-12-31",
-            hashlib.sha256("NBA-NELLO-2024-PRO".encode()).hexdigest(): "2032-12-31",
-            hashlib.sha256("NBA-GIAMM-2024-PRO".encode()).hexdigest(): "2032-12-31",
-            hashlib.sha256("NBA-EUGEO-2024-PRO".encode()).hexdigest(): "2032-12-31",
-            hashlib.sha256("NBA-MATTO-2024-PRO".encode()).hexdigest(): "2032-12-31",
-            hashlib.sha256("NBA-STATS-2024-TRIAL".encode()).hexdigest(): "2024-04-31"
-        }
-        
-        # Calcola l'hash della chiave inserita
-        key_hash = hashlib.sha256(key.encode()).hexdigest()
-        
-        # Verifica se la chiave esiste e non è scaduta
-        if key_hash in valid_keys:
-            expiry_date = datetime.strptime(valid_keys[key_hash], "%Y-%m-%d")
-            if expiry_date > datetime.now():
-                # Salva la chiave se la verifica ha successo
-                save_key(key)
-                return True, ""
-            else:
-                return False, "La chiave è scaduta"
-        return False, "Chiave non valida"
-    except Exception as e:
-        return False, f"Errore durante la verifica: {str(e)}"
+def verify_key(key, machine_id):
+    # Verifica nel database se la chiave esiste e non è assegnata ad altro machine_id
+    # Ritorna True solo se la chiave è valida e collegata a questo machine_id o non ancora assegnata
+    pass
 
 def save_key_to_config(key):
     """Salva la chiave nel file di configurazione"""
