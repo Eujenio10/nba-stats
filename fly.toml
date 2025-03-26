@@ -1,1 +1,4 @@
 app = "nba-stats"  # Sostituisci con il nome che desideri per la tua app
+[build]
+  builder = "heroku/buildpacks:python"
+
