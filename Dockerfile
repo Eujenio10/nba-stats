@@ -14,4 +14,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 5000
 
 # Comando per avviare l'app
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["gunicorn", "-b", "0.0.0.0:8080", "main:app"]
+
